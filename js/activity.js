@@ -7,6 +7,9 @@ define(["sugar-web/activity/activity"], function (activity) {
         var score_div = document.getElementById("score");
 		var myButton = document.getElementById("my-button");
 		var refreshButton = document.getElementById("refresh-button");
+		var closewindow = document.getElementById("closewindow");
+		var help = document.getElementById("help");
+		var help_display = document.getElementById("help_display");
 		var score = 0;
 		var motRandom;
 		var capital = {
@@ -217,14 +220,17 @@ define(["sugar-web/activity/activity"], function (activity) {
 		        array[j] = temp;
 		    }
 		};
-
+		function toggleDiv(id) {
+		    var div = document.getElementById(id);
+		    div.style.display = div.style.display == "none" ? "block" : "none";
+		}
 		function refresh() {
 	        var Countries = Object.keys(capital);
 			var indexRandom = Math.floor(Math.random()*Countries.length);
 		    motRandom = Countries[indexRandom];
 			Countries.splice(indexRandom, 1);
 			var choices = [motRandom];
-			div.innerHTML = "<p>What is the capital of " + motRandom+ " ?</p>";
+			div.innerHTML = "<p>What is the capital of " + motRandom+ "?</p>";
 			score_div.innerHTML= "Score : "+ score;
 
 			var i = 1;    
@@ -253,7 +259,7 @@ define(["sugar-web/activity/activity"], function (activity) {
 				score += 1;
 				score_div.innerHTML= "Score : "+ score;
 			}else{
-				result_div.innerHTML="Your answer is wrong. Try again !"
+				result_div.innerHTML="Your answer is wrong. Try again!"
 			}
 		};
 
@@ -264,6 +270,20 @@ define(["sugar-web/activity/activity"], function (activity) {
 		};
 
         refresh();
+
+
+		help.onclick= function(){
+			toggleDiv("help_display")
+		}
+
+		var stopButton = document.getElementById("stop-button");
+  //       stopButton.onclick= function(){
+		//     var obj_window = window.open('', '_self');
+		//     obj_window.opener = window;
+		//     obj_window.focus();
+		//     opener=self;
+		//     self.close();
+		// }
 		
     });
 });

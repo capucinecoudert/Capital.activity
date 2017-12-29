@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8" />
-<title>Capital Activity</title>
+<title>Capital Web</title>
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"/>
 <link rel="stylesheet" media="not screen and (device-width: 1200px) and (device-height: 900px)"
 	href="lib/sugar-web/graphics/css/sugar-96dpi.css">
@@ -16,18 +16,17 @@
 <body>
 <div id="main-toolbar" class="toolbar">
   <button class="toolbutton" id="activity-button" title="My Activity"></button>
-    <span id='score'></div>
+    <span id='score'></span>
+    <!--<button id='closewindow' title=closewindow>Close Window</button>-->
   <button class="toolbutton pull-right" id="stop-button" title="Stop"></button>
 </div>
-
-<!-- The content of your activity goes inside the canvas -->
 <div id="canvas">
-    <!-- Replace this message with your own content -->
-  <h1>The Capital Game !</h1>
-  <p>1.Check your answer.</p>
-   <p> 2.Validate it.</p>
-    <p>3.Then, refresh the page.</p>
-    <!-- Checked list-->
+  <h1>The Capital Game!</h1>
+  <div id="help_display" style="display:none">
+    <p>1.Check your answer.</p><p> 2.Validate it.</p><p>3.Then, refresh the page.</p>
+  </div>
+  <button id='help' title=help>Help</button>
+
     <div id='capitals'>
     </div>  
     <button id="my-button" title="Validate">Validate</button>
@@ -35,7 +34,7 @@
     </div>  
     <div id='result'>
     </div> 
-    <input id="refresh-button" type="button" value="Refresh Page" >
+    <button id="refresh-button"  title="Next Question" >Next Question</button>
 </body>
 
 </html>
