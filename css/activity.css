@@ -1,15 +1,23 @@
 #main-toolbar #activity-button {
-  background-image: url(../activity/activity-icon.svg);
-  float: left;
+    background-image: url(../activity/activity-icon.svg);
+    float: left;
+}
+#main-toolbar #help {
+    background-image: url(../activity/help-icon.svg);
+
 }
 body{
 	text-align: center;
 }
 #canvas{
 	background-color: #5F9EA0;
+	text-align: center;
 }
 #score{
 	color:yellow;
+	float: left;
+	margin-left: 10px;
+	margin-top: 15px;
 }
 div{
 	font-size: 150%;
@@ -25,5 +33,8 @@ h1{
 }
 #help{
 	color: #9ACD32 ;
-	margin-left:40px
+	margin-left:40px;
+}
+hr{
+	float: left;
 }
