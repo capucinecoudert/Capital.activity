@@ -1,5 +1,4 @@
 #main-toolbar #activity-button {
-  background-color: #9ACD32 ;
   background-image: url(../activity/activity-icon.svg);
   float: left;
 }
@@ -11,7 +10,6 @@ body{
 }
 #score{
 	color:yellow;
-	margin-top: 30px;
 }
 div{
 	font-size: 150%;
@@ -25,14 +23,7 @@ h1{
 	font-size: 200%;
 	text-align: center;
 }
-#closewindow{
-	float: right;
-	color:yellow;
-}
-#refresh-button{
-	color: #9ACD32 ;
-}
 #help{
-	float:right;
-	margin-right:30px
+	color: #9ACD32 ;
+	margin-left:40px
 }

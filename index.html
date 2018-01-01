@@ -15,18 +15,18 @@
 
 <body>
 <div id="main-toolbar" class="toolbar">
-  <button class="toolbutton" id="activity-button" title="My Activity"></button>
+  <button class="toolbutton" id="activity-button" title="Capital Activity"></button>
     <span id='score'></span>
-    <!--<button id='closewindow' title=closewindow>Close Window</button>-->
+  <button id='help' title=help>Help</button>
   <button class="toolbutton pull-right" id="stop-button" title="Stop"></button>
 </div>
 <div id="canvas">
   <h1>The Capital Game!</h1>
   <div id="help_display" style="display:none">
-    <p>1.Check your answer.</p><p> 2.Validate it.</p><p>3.Then, refresh the page.</p>
+    <p>1. Check your answer.</p><p> 2. Validate it.</p><p>3. Then, Validate your answer.
+     A new question will display on your browser and the correction of the previous question will display at the bottom of the window.</p>
   </div>
-  <button id='help' title=help>Help</button>
-
+  <div id="test_display" style="visibility:visible">
     <div id='capitals'>
     </div>  
     <button id="my-button" title="Validate">Validate</button>
@@ -34,7 +34,8 @@
     </div>  
     <div id='result'>
     </div> 
-    <button id="refresh-button"  title="Next Question" >Next Question</button>
+  </div>
+  <div id="test"></div>
 </body>
 
 </html>

@@ -6,12 +6,15 @@ define(["sugar-web/activity/activity"], function (activity) {
         var result_div = document.getElementById("result");
         var score_div = document.getElementById("score");
 		var myButton = document.getElementById("my-button");
-		var refreshButton = document.getElementById("refresh-button");
 		var closewindow = document.getElementById("closewindow");
 		var help = document.getElementById("help");
 		var help_display = document.getElementById("help_display");
-		var score = 0;
+		var test = document.getElementById("test");
+		var test_display = document.getElementById("test_display");
 		var motRandom;
+		var score =0;
+		var g= 0;
+		var stop_game= false;
 		var capital = {
 			'Afghanistan':'Kabul',
 			'Albania':'Tirana',
@@ -224,6 +227,9 @@ define(["sugar-web/activity/activity"], function (activity) {
 		    var div = document.getElementById(id);
 		    div.style.display = div.style.display == "none" ? "block" : "none";
 		}
+		function update_score(){
+			score_div.innerHTML= "Score : "+ score + " / " + g;
+		}
 		function refresh() {
 	        var Countries = Object.keys(capital);
 			var indexRandom = Math.floor(Math.random()*Countries.length);
@@ -231,7 +237,7 @@ define(["sugar-web/activity/activity"], function (activity) {
 			Countries.splice(indexRandom, 1);
 			var choices = [motRandom];
 			div.innerHTML = "<p>What is the capital of " + motRandom+ "?</p>";
-			score_div.innerHTML= "Score : "+ score;
+			update_score();
 
 			var i = 1;    
 			while(i <= 3  )  
@@ -248,42 +254,48 @@ define(["sugar-web/activity/activity"], function (activity) {
 			    '<INPUT type="radio" name="results" value="' + capital[choices[i]]+'">'+ capital[choices[i]];
 	        }
 		};
-
-
-
 		myButton.onclick = function () {
 			var choice = document.querySelector('input[name="results"]:checked').value;
 		   		answer_div.innerHTML="You clicked: "+choice;
+		   	g += 1;
 			if (choice == capital[motRandom]){
-				result_div.innerHTML=" Yes! The capital of " + motRandom + " is " + choice + "."
+				result_div.innerHTML=" Yes! The capital of " + motRandom + " is " + choice + "." ;
 				score += 1;
-				score_div.innerHTML= "Score : "+ score;
 			}else{
-				result_div.innerHTML="Your answer is wrong. Try again!"
-			}
+				result_div.innerHTML="Your answer is wrong. The capital of " + motRandom + " is " + capital[motRandom] + "." ;
+			};
+			game();
 		};
-
-
-
-		refreshButton.onclick = function(){
-			refresh();
-		};
-
-        refresh();
-
-
 		help.onclick= function(){
 			toggleDiv("help_display")
 		}
-
-		var stopButton = document.getElementById("stop-button");
-  //       stopButton.onclick= function(){
-		//     var obj_window = window.open('', '_self');
-		//     obj_window.opener = window;
-		//     obj_window.focus();
-		//     opener=self;
-		//     self.close();
-		// }
-		
+		function Hide (addr) { 
+			document.getElementById(addr).style.display = "none";	
+		}
+		function Show (addr) { 
+			document.getElementById(addr).style.display = "block";	
+		}
+		function toggle(anId)
+		{
+			if (document.getElementById(anId).style.display == "none")	{	
+				Show(anId);	
+			} else {	
+				Hide(anId);	
+			}
+		}
+		function stop(){
+			toggle("test_display");
+			update_score();
+			test.innerHTML="<p>Game finished! Your score is</p>" + score + " / " + g;
+		};
+		function game(){
+			if (g < 5){
+				refresh();
+			} else {
+			    stop();
+			}
+		};
+	
+		game();
     });
 });
